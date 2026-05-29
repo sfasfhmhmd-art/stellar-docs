@@ -36,3 +36,6 @@ FROM nginx:1.29
 
 COPY --from=build /app/build/ /usr/share/nginx/html/
 COPY nginx /etc/nginx/
+
+RUN rm -f /docker-entrypoint.d/10-listen-on-ipv6-by-default.sh && \
+    rm -f /etc/nginx/conf.d/default.conf
