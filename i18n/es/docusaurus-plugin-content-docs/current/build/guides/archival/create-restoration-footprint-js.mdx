@@ -67,18 +67,18 @@ async function createRestorationFootprint(
           readWrite: [contractDataXDR],
         }),
         instructions: 0,
-        readBytes: 0,
+        diskReadBytes: 0,
         writeBytes: 0,
       }),
       resourceFee: xdr.Int64.fromString("0"),
-      // @ts-ignore
-      ext: new xdr.ExtensionPoint(0),
+      ext: new xdr.SorobanTransactionDataExt(0),
     });
   // Restore transaction with created restoration footprint
   const restoreTx: Transaction = new TransactionBuilder(account, { fee: fee })
     .setNetworkPassphrase(Networks.TESTNET)
     .setSorobanData(restoreData)
     .addOperation(Operation.restoreFootprint({}))
+    .setTimeout(30)
     .build();
 
   restoreTx.sign(signer);
@@ -107,7 +107,7 @@ A continuación, estamos preparando los datos de la transacción (Soroban) con:
 
 - `resources`: Especifica los recursos necesarios para la transacción.
 - `footprint`: Define qué partes del ledger se leerán y se escribirán.
-- `instructions`, `readBytes`, `writeBytes`: Establece los límites de recursos (todos establecidos en 0 aquí).
+- `instructions`, `diskReadBytes`, `writeBytes`: Establece los límites de recursos (todos establecidos en 0 aquí).
 - `resourceFee`: Establece la tarifa de recursos en 0 (marcador).
 - `ext`: Punto de extensión para uso futuro (establecido en 0).
 
