@@ -157,7 +157,7 @@ liveUntilLedger that is large enough.
 
 #### Recursos de la transacción
 
-`ExtendFootprintTTLOp` es una operación Soroban y, por lo tanto, debe ser la única operación en una transacción. La transacción también debe completar la extensión de transacción `SorobanTransactionData` explicada [aquí](../contract-interactions/stellar-transaction.mdx#transaction-resources). Para completar `SorobanResources`, usa la simulación de la transacción mencionada en el enlace proporcionado, o asegúrate de que `readBytes` incluya la clave y tamaño de entrada de cada entrada en el conjunto `readOnly`.
+`ExtendFootprintTTLOp` es una operación Soroban y, por lo tanto, debe ser la única operación en una transacción. La transacción también debe completar la extensión de transacción `SorobanTransactionData` explicada [aquí](../contract-interactions/stellar-transaction.mdx#transaction-resources). Para completar `SorobanResources`, usa la simulación de la transacción mencionada en el enlace proporcionado, o asegúrate de que `diskReadBytes` incluya la clave y tamaño de entrada de cada entrada en el conjunto `readOnly`.
 
 ### RestoreFootprintOp
 

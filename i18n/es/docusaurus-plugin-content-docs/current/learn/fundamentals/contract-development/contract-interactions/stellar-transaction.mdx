@@ -591,7 +591,7 @@ const signedEntries = simTx.auth.map(async (entry) =>
 
 Cada transacción Soroban debe tener un [extension] `SorobanTransactionData` poblado. Esto es necesario para calcular la [tarifa de recursos Soroban](../../../fundamentals/fees-resource-limits-metering.mdx).
 
-[extension]: https://github.com/stellar/stellar-xdr/blob/c2e702c70951ff59a1eff257f08cf38d47210e5f/Stellar-transaction.x#L874
+[extension]: https://github.com/stellar/stellar-xdr/blob/55a00d96afcf4d85340b071b8d44a4e645f25bc4/Stellar-transaction.x#L880
 
 Los datos de la transacción Soroban se definen como sigue:
 
@@ -603,8 +603,8 @@ struct SorobanResources
     // The maximum number of instructions this transaction can use
     uint32 instructions;
 
-    // The maximum number of bytes this transaction can read from ledger
-    uint32 readBytes;
+    // The maximum number of bytes this transaction can read from disk backed entries
+    uint32 diskReadBytes;
     // The maximum number of bytes this transaction can write to ledger
     uint32 writeBytes;
 };
